@@ -1,16 +1,18 @@
-# flutter_vendor_project
+# Flutter Product Catalog App
+This is the frontend of the **Unified Vendor Data** project. The app is built using **Flutter** and allows users to view interact with a unified product catalog from multiple vendors. The app fetches data from the FastAPI backend.
 
-A new Flutter project.
+## **Features**
+- Displays product catalog with real-time data from the backend.
+- Fetches product details, including name, description, price, and photos.
+- Implements responsive design to work on multiple platforms (web, mobile).
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+### Steps to Run Locally
 
-A few resources to get you started if this is your first Flutter project:
+1. **Clone the Repository
+   ```bash
+   git clone https://github.com/MehmetGulll/vendor-project-client
+2. **Run Application
+   ```bash
+   flutter run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
