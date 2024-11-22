@@ -86,7 +86,7 @@ class _ProductListPageState extends State<ProductListPage> {
               itemBuilder: (context, index) {
                 final product = productList[index];
 
-                // Photos alanını liste olarak işleme
+            
                 List<String> photoUrls = [];
                 if (product['photos'] is List) {
                   photoUrls = List<String>.from(product['photos']);
