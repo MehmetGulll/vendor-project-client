@@ -13,7 +13,10 @@ This is the frontend of the **Unified Vendor Data** project. The app is built us
    ```bash
    git clone https://github.com/MehmetGulll/vendor-project-client
    cd flutter_vendor_project
-2. **Run Application
+2. **Install Dependencies
+   ```bash
+   flutter pub get
+3. **Run Application
    ```bash
    flutter run
 
