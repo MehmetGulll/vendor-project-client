@@ -25,20 +25,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final productsProvider = FutureProvider<List<dynamic>>((ref) async {
+final productsProvider = FutureProvider<List<Map<String, dynamic>>>((ref) async {
   const String apiUrl = 'http://localhost:8000/products?limit=10&offset=0';
   final response = await http.get(Uri.parse(apiUrl));
   if (response.statusCode == 200) {
-    final Map<String, dynamic> decodedJson = jsonDecode(response.body);
-    if (decodedJson['data'] != null) {
-      List<dynamic> allProducts = [];
-      decodedJson['data'].forEach((vendor, products) {
-        allProducts.addAll(products);
-      });
-      return allProducts;
-    } else {
-      throw Exception('Invalid data format: "data" key is missing');
-    }
+    final List<dynamic> decodedJson = jsonDecode(response.body);
+    return decodedJson.cast<Map<String, dynamic>>();
   } else {
     throw Exception('Failed to load products. Status code: ${response.statusCode}');
   }
