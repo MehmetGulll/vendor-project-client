@@ -25,16 +25,32 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 final productsProvider = FutureProvider<List<Map<String, dynamic>>>((ref) async {
   const String apiUrl = 'http://localhost:8000/products?limit=10&offset=0';
   final response = await http.get(Uri.parse(apiUrl));
+  
   if (response.statusCode == 200) {
-    final List<dynamic> decodedJson = jsonDecode(response.body);
-    return decodedJson.cast<Map<String, dynamic>>();
+
+    final Map<String, dynamic> decodedJson = jsonDecode(response.body);
+
+
+    final Map<String, dynamic> data = decodedJson['data'];
+
+    
+    final List<Map<String, dynamic>> products = [];
+    data.forEach((key, value) {
+      if (value is List) {
+        products.addAll(value.cast<Map<String, dynamic>>());
+      }
+    });
+
+    return products;
   } else {
     throw Exception('Failed to load products. Status code: ${response.statusCode}');
   }
 });
+
 
 class ProductListPage extends ConsumerWidget {
   const ProductListPage({super.key});
